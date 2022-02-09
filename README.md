@@ -13,4 +13,4 @@ python manage.py runserver 3001
 
 Only port 3001 works, other ports will cause error on Singpass side.
 
-Then access to localhost:3001 and try the tool.
+After the server is up and running, access to localhost:3001 and try the tool. No need to run a separate front end server.
