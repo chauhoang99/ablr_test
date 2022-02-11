@@ -98,12 +98,17 @@ const template = `
                 </div>
                 <div class="field">
                     <label class="label">CPF Account Balance</label>
-                    <label class="label">Ordinary Account (OA) (S$)</label>
-                    <input class="input" type="text" :value="retrieved_data.cpfbalances.oa.value">
-                    <label class="label">Special Account (SA) (S$)</label>
-                    <input class="input" type="text" :value="retrieved_data.cpfbalances.sa.value">
-                    <label class="label">Medisave Account (MA) (S$)</label>
-                    <input class="input" type="text" :value="retrieved_data.cpfbalances.ma.value">
+                    <div v-if="retrieved_data.cpfbalances.unavailable">
+                    Unavailable
+                    </div>
+                    <div v-else>
+                        <label class="label">Ordinary Account (OA) (S$)</label>
+                        <input class="input" type="text" :value="retrieved_data.cpfbalances.oa.value">
+                        <label class="label">Special Account (SA) (S$)</label>
+                        <input class="input" type="text" :value="retrieved_data.cpfbalances.sa.value">
+                        <label class="label">Medisave Account (MA) (S$)</label>
+                        <input class="input" type="text" :value="retrieved_data.cpfbalances.ma.value">
+                    </div>
                 </div>
                 <div class="field">
                     <label class="label">CPF Contribution History</label>
@@ -144,10 +149,5 @@ export default {
     components: {
         'tabs': Tabs,
         'tab': Tab
-    },
-    mounted () {
-        JSON.parse(document.getElementById('retrieved-data').textContent), function (json) {
-            this.retrieved_data = json_data.data
-        }
     }
 }
