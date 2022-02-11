@@ -4,7 +4,9 @@ This is a simple web app to show how to interact with MyInfo API. App is mainly 
 ## Set up virtualenv
 
 python3 -m venv env
+
 source env/bin/activate
+
 pip install -r requirements.txt
 
 ## Run Django server
